@@ -13,7 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class Menu extends Fragment {
-
+    FragmentManager menuManager = null;
+    FragmentTransaction menuTransaction = null;
     public Menu() {
         // Required empty public constructor
     }
@@ -24,19 +25,32 @@ public class Menu extends Fragment {
         // Inflate the layout for this fragment
         View fMenu = inflater.inflate(R.layout.fragment_menu, container, false);
         Button btnAdd = fMenu.findViewById(R.id.buttonAdd);
+        Button btnShow = fMenu.findViewById(R.id.buttonShow);
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("click", "button add clicked");
+                menuManager = getFragmentManager();
+                menuTransaction = menuManager.beginTransaction();
+                Fragment fAddIncidence = new AddIncidence();
+                menuTransaction.replace(R.id.constraintMainLayout, fAddIncidence);
+                menuTransaction.commit();
             }
         });
 
-        FragmentManager menuManager = getFragmentManager();
-        FragmentTransaction menuTranaction = menuManager.beginTransaction();
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("click", "button show clicked");
+                menuManager = getFragmentManager();
+                menuTransaction = menuManager.beginTransaction();
+                Fragment fListIncidences = new ListIncidences();
+                menuTransaction.replace(R.id.constraintMainLayout, fListIncidences);
+                menuTransaction.commit();
+            }
+        });
 
-        Fragment fAddIncidence = new AddIncidence();
-        menuTranaction.replace(R.id.constraintMainLayout, fAddIncidence);
-        menuTranaction.commit();
         return fMenu;
     }
 }
