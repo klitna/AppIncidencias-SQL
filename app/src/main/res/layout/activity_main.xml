@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Login">
 
     <fragment
-        android:id="@+id/Menu"
-        android:name="com.example.myapplication.Menu"
+        android:id="@+id/Login"
+        android:name="com.example.myapplication.Login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_login" >
+    </fragment>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintMainLayout"
@@ -24,9 +25,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Menu">
+        app:layout_constraintTop_toBottomOf="@+id/Login">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

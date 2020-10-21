@@ -3,33 +3,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Menu">
-
-    <LinearLayout
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonAdd"
+        android:layout_height="match_parent"
+        tools:context=".Menu">
+        <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add" />
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/buttonShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
+            <TextView
+                android:id="@+id/titleMenu"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="3"
+                android:layout_gravity="center"
+                android:layout_marginBottom="60dp"
+                android:gravity="center"
+                android:text="MENU"
+                android:textColor="@color/customBlue"
+                android:textSize="45dp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/buttonDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/addIncidenceButton"
+                android:layout_width="118dp"
+                android:layout_height="121dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/white"
+                android:src="@drawable/add_incidence"
+                android:text="Añadir incidencia" />
+
+            <TextView
+                android:id="@+id/addIncidenceText"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
+                android:text="Añadir incidencia"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/listIncidenceButton"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/white"
+                android:src="@drawable/list_incidences"
+                android:text="Listar Incidencias" />
+
+            <TextView
+                android:id="@+id/listIncidencesText"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:text="Listar incidencias"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/deleteIncidenceButton"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/white"
+                android:src="@drawable/delete_incidence"
+                android:text="Eliminar incidencias" />
+
+            <TextView
+                android:id="@+id/deleteIncidenceText"
+                android:layout_row="4"
+                android:layout_column="0"
+                android:layout_gravity="center"
+                android:text="ELiminar incidencia"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/deleteIncidencesButton"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/white"
+                android:src="@drawable/delete_all_incidences"
+                android:text="Eliminar incidencias" />
+
+            <TextView
+                android:id="@+id/deleteIncidencesText"
+                android:layout_row="4"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:text="Añadir incidencia"
+                android:textColor="@color/black" />
+        </GridLayout>
+    </FrameLayout>
     <!-- TODO: Update blank fragment layout -->
 </FrameLayout>
