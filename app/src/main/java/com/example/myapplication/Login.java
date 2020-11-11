@@ -34,13 +34,27 @@ public class Login extends Fragment {
                 Log.i("click", "button add clicked");
                 loginManager = getFragmentManager();
                 loginTransaction = loginManager.beginTransaction();
+                Fragment fMenu = new Menu();
+                loginTransaction.replace(R.id.constraintMainLayout, fMenu);
                 loginTransaction.commit();
-                onDestroyView();
+                //onDestroyView();
+
             }
         });
         return fLogin;
     }
 
+   /* @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
+        final FragmentManager fragmentManager = getFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.remove(fMenu);
+
+        fragmentTransaction.commit();
+
+    }*/
 
 }

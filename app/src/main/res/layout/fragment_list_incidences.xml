@@ -11,8 +11,8 @@
         android:layout_height="wrap_content">
     <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="405dp"
+            android:layout_height="75dp"
             android:text="Hello! Here you should list all the incidences!"
             android:textSize="45dp"
             android:textStyle="bold"
@@ -21,4 +21,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/incidencesRecycler"
+        android:layout_width="401dp"
+        android:layout_height="595dp" />
 </FrameLayout>
