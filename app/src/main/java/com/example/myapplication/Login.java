@@ -15,6 +15,7 @@ import android.widget.Button;
 public class Login extends Fragment {
     FragmentManager loginManager = null;
     FragmentTransaction loginTransaction = null;
+    Fragment fMenu = new Menu();
     public Login() {
         // Required empty public constructor
     }
@@ -33,11 +34,14 @@ public class Login extends Fragment {
                 Log.i("click", "button add clicked");
                 loginManager = getFragmentManager();
                 loginTransaction = loginManager.beginTransaction();
-                Fragment fMenu = new Menu();
                 loginTransaction.replace(R.id.constraintMainLayout, fMenu);
                 loginTransaction.commit();
+                onDestroyView();
             }
         });
         return fLogin;
     }
+
+
+
 }

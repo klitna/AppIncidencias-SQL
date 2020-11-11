@@ -22,6 +22,7 @@ public class Menu extends Fragment {
     public Menu() {
         // Required empty public constructor
     }
+
     final ArrayList<Incidence> incidences = new ArrayList<Incidence>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
