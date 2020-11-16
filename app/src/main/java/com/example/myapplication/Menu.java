@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class Menu extends Fragment {
     FragmentManager menuManager = null;
     FragmentTransaction menuTransaction = null;
+
     public Menu() {
         // Required empty public constructor
     }
@@ -27,7 +29,7 @@ public class Menu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View fMenu = inflater.inflate(R.layout.fragment_menu, container, false);
         ImageButton btnAdd = fMenu.findViewById(R.id.addIncidenceButton);
         ImageButton btnShow = fMenu.findViewById(R.id.listIncidenceButton);

@@ -32,7 +32,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertIncidencia(SQLiteDatabase db, Incidence i){
+    public static void insertIncidencia(SQLiteDatabase db, Incidence i){
         //Check the bd is open
         if (db.isOpen()){
             ContentValues values = new ContentValues();
@@ -41,6 +41,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
             values.put(IncidenciaEntry.COLUMN_NAME_TITLE, i.getName());
 
             db.insert(IncidenciaEntry.TABLE_NAME, null, values);
+            db.close();
         }else{
             Log.d("sql","Database is closed");
         }

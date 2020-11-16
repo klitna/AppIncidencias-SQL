@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,14 +13,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import java.util.zip.Inflater;
+import static com.example.myapplication.DB.IncidenciaDBHelper.*;
 
 public class AddIncidence extends Fragment {
 
     FragmentManager addIncidenceManager = null;
     FragmentTransaction addIncidenceTransaction = null;
-
+    SQLiteDatabase db;
+    Incidence incidence;
     public AddIncidence() {
         // Required empty public constructor
     }
@@ -33,6 +36,7 @@ public class AddIncidence extends Fragment {
             @Override
             public void onClick(View v) {
 
+                insertIncidencia(db, incidence);
             }
         });
 

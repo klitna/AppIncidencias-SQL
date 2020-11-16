@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,7 @@ public class Login extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fLogin = inflater.inflate(R.layout.fragment_login, container, false);
+        final View fLogin = inflater.inflate(R.layout.fragment_login, container, false);
 
         Button loginButton = fLogin.findViewById(R.id.loginButton);
 
@@ -37,11 +39,22 @@ public class Login extends Fragment {
                 Fragment fMenu = new Menu();
                 loginTransaction.replace(R.id.constraintMainLayout, fMenu);
                 loginTransaction.commit();
-                //onDestroyView();
-
+                hideView(fLogin);
             }
         });
         return fLogin;
+    }
+
+    public void hideView(View fLogin){
+        ViewGroup.LayoutParams params = fLogin.getLayoutParams();
+        params.height = -1000;
+        fLogin.requestLayout();
+    }
+
+    public void showeView(View fLogin){
+        ViewGroup.LayoutParams params = fLogin.getLayoutParams();
+        params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        fLogin.requestLayout();
     }
 
    /* @Override
