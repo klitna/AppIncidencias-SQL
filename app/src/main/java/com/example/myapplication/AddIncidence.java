@@ -33,7 +33,7 @@ public class AddIncidence extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fAddIncidence = inflater.inflate(R.layout.fragment_add_incidence, container, false);
-        Button buttonAdd = fAddIncidence.findViewById(R.id.addIncidenceButton);
+        Button buttonAdd = fAddIncidence.findViewById(R.id.saveIncidenceButton);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

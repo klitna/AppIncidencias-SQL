@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -29,11 +30,11 @@ public class Menu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View fMenu = inflater.inflate(R.layout.fragment_menu, container, false);
-        ImageButton btnAdd = fMenu.findViewById(R.id.addIncidenceButton);
-        ImageButton btnShow = fMenu.findViewById(R.id.listIncidenceButton);
-        ImageButton btnDelete = fMenu.findViewById(R.id.deleteIncidenceButton);
-        ImageButton btnDeleteAll = fMenu.findViewById(R.id.deleteIncidencesButton);
+        final View fMenu = inflater.inflate(R.layout.fragment_menu, container, false);
+        Button btnAdd = fMenu.findViewById(R.id.addIncidenceButton);
+        Button btnShow = fMenu.findViewById(R.id.listIncidenceButton);
+        Button btnDelete = fMenu.findViewById(R.id.deleteIncidenceButton);
+        Button btnDeleteAll = fMenu.findViewById(R.id.deleteIncidencesButton);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,5 +73,12 @@ public class Menu extends Fragment {
         });
 
         return fMenu;
+    }
+    private void setViewLayout(int id){
+        LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View mainView = inflater.inflate(id, null);
+        ViewGroup rootView = (ViewGroup) getView();
+        rootView.removeAllViews();
+        rootView.addView(mainView);
     }
 }

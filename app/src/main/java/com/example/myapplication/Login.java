@@ -18,37 +18,30 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.widget.Toast;
 
-public class Login extends Fragment {
+public class Login extends AppCompatActivity {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                            Bundle savedInstanceState)  {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View fLogin = inflater.inflate(R.layout.fragment_login_old, container, false);
+        setContentView(R.layout.activity_login);
 
-        final EditText user = fLogin.findViewById(R.id.loginEmail);
-        final EditText pass = fLogin.findViewById(R.id.loginPassword);
-        final Button loginButton = fLogin.findViewById(R.id.loginButton);
+        final EditText user = findViewById(R.id.loginEmail);
+        final EditText pass = findViewById(R.id.loginPassword);
+        final Button loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String User = user.getText().toString();
                 String Password = pass.getText().toString();
-                if (User.equals("admin") && Password.equals("admin")) {
+                if (User.equals("admin") && Password.equals("admin"))
                     goToMenu();
-                    Log.i("click", "logged");
-                }
             }
         });
-        return fLogin;
     }
 
-    public void goToMenu() {
-        FragmentManager menuManager = getFragmentManager();
-        FragmentTransaction menuTransaction = menuManager.beginTransaction();
-        Fragment fListIncidences = new ListIncidences();
-        menuTransaction.replace(R.id.constraintMainLayout, fListIncidences);
-        menuTransaction.commit();
+    public void goToMenu(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
 
@@ -98,8 +91,4 @@ public class Login extends Fragment {
         ViewGroup.LayoutParams params = fLogin.getLayoutParams();
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         fLogin.requestLayout();
-    }
-
-
-
-        */
+    }*/
