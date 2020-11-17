@@ -5,127 +5,42 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Menu">
-    <FrameLayout
+        <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Menu">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/customBlue"
+        app:layout_constraintBottom_toBottomOf="@+id/Login">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:layout_gravity="bottom"
-            android:background="@drawable/shadow"></ImageView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/addIncidenceButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/customBlue">
+            android:layout_weight="1"
+            android:text="Add"></Button>
 
-            <GridLayout
-                android:layout_width="fill_parent"
-                android:layout_height="64dp"
-                android:layout_centerHorizontal="true"
-                android:alignmentMode="alignBounds"
+        <Button
+            android:id="@+id/listIncidenceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Show"></Button>
 
-                android:columnCount="4"
-                android:padding="4dp"
-                android:rowOrderPreserved="false"
-                android:useDefaultMargins="true">>
+        <Button
+            android:id="@+id/deleteIncidenceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete"></Button>
 
-
-                <ImageButton
-                    android:id="@+id/addIncidenceButton"
-                    android:layout_height="30dp"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_alignParentTop="true"
-                    android:layout_columnWeigh="1"
-                    android:background="@color/customBlue"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/add" />
-
-                <TextView
-                    android:id="@+id/addIncidenceText"
-                    android:layout_height="12dp"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_weigh="1"
-                    android:text="Añadir"
-                    android:textColor="@color/white"
-                    android:textSize="10dp" />
-
-                <ImageButton
-                    android:id="@+id/listIncidenceButton"
-                    android:layout_height="33dp"
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_toRightOf="@+id/addIncidenceButton"
-                    android:layout_weigh="1"
-                    android:background="@color/customBlue"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/list"
-                    android:text="Listar\nIncidencias" />
-
-                <TextView
-                    android:id="@+id/listIncidencesText"
-                    android:layout_height="12dp"
-                    android:layout_row="1"
-                    android:layout_column="1"
-                    android:layout_weigh="1"
-                    android:text="Listar"
-                    android:textColor="@color/white"
-                    android:textSize="10dp" />
-
-                <ImageButton
-                    android:id="@+id/deleteIncidenceButton"
-                    android:layout_height="35dp"
-                    android:layout_row="0"
-                    android:layout_column="2"
-                    android:layout_toRightOf="@id/listIncidenceButton"
-                    android:layout_weigh="1"
-                    android:background="@color/customBlue"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/deleteone" />
-
-                <TextView
-                    android:id="@+id/deleteIncidenceText"
-                    android:layout_height="12dp"
-                    android:layout_row="1"
-                    android:layout_column="2"
-                    android:layout_weigh="1"
-                    android:text="Eliminar"
-                    android:textColor="@color/white"
-                    android:textSize="10dp" />
-
-                <ImageButton
-                    android:id="@+id/deleteIncidencesButton"
-                    android:layout_height="35dp"
-                    android:layout_row="0"
-                    android:layout_column="3"
-                    android:layout_toRightOf="@+id/deleteIncidenceButton"
-                    android:layout_weight="1"
-                    android:background="@color/customBlue"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/bin"
-                    android:text="Eliminar incidencias" />
-
-                <TextView
-                    android:id="@+id/deleteIncidencesText"
-                    android:layout_height="12dp"
-                    android:layout_row="1"
-                    android:layout_column="3"
-                    android:layout_weight="1"
-                    android:text="Resetear"
-                    android:textColor="@color/white"
-                    android:textSize="10dp" />
-
-
-            </GridLayout>
-        </LinearLayout>
-
-    </FrameLayout>
+        <Button
+            android:id="@+id/deleteIncidencesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="reset"></Button>
+    </LinearLayout>
     <!-- TODO: Update blank fragment layout -->
 </FrameLayout>

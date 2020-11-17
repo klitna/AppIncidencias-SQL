@@ -25,7 +25,6 @@ public class Menu extends Fragment {
         // Required empty public constructor
     }
 
-    final ArrayList<Incidence> incidences = new ArrayList<Incidence>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

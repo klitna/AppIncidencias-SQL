@@ -1,10 +1,11 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -13,8 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import java.util.zip.Inflater;
-import static com.example.myapplication.DB.IncidenciaDBHelper.*;
+import android.widget.Toast;
+
+import static com.example.myapplication.DB.IncidenciaDBHelper.insertIncidencia;
 
 public class AddIncidence extends Fragment {
 
@@ -35,23 +37,24 @@ public class AddIncidence extends Fragment {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 insertIncidencia(db, incidence);
+                Log.i("add", "incidence added");
             }
         });
 
         return inflater.inflate(R.layout.fragment_add_incidence, container, false);
     }
 
+
+
     public void onBackClick(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState){
-        View fAddIncidence = inflater.inflate(R.layout.fragment_login, container, false);
+        View fAddIncidence = inflater.inflate(R.layout.fragment_login_old, container, false);
         Log.i("click", "button add clicked");
         addIncidenceManager = getFragmentManager();
         addIncidenceTransaction = addIncidenceManager.beginTransaction();
         Fragment fMenu = new Menu();
         addIncidenceTransaction.replace(R.id.constraintMainLayout, fMenu);
         addIncidenceTransaction.commit();
-        onDestroyView();
     }
 }
