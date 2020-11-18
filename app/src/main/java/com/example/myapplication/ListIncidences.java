@@ -40,7 +40,7 @@ public class ListIncidences extends Fragment {
         String[] arrU= dbHelper.getUrgences();
 
         RecyclerView recyclerView = (RecyclerView)fListIncidences.findViewById(R.id.incidencesRecycler);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext()));
+        //recyclerView.setLayoutManager(new GridLayoutManager(getContext()));
 
 
         int count = dbHelper.getCountRows();
