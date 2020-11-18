@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 import com.example.myapplication.DB.IncidenciaDBHelper;
 
+import java.util.ArrayList;
+
 import static com.example.myapplication.DB.IncidenciaDBHelper.insertIncidencia;
 
 public class AddIncidence extends Fragment implements AdapterView.OnItemSelectedListener  {
@@ -48,7 +50,7 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
 
         dbHelper = new IncidenciaDBHelper(container.getContext());
         db = dbHelper.getWritableDatabase();
-
+        final ArrayList<String> incidencesAux = new ArrayList<String>();
 
         final EditText incidenceName = (EditText)fAddIncidence.findViewById(R.id.editTextTextPersonName);
         final Button saveIncidenceButton=(Button)fAddIncidence.findViewById(R.id.saveIncidenceButton);
@@ -85,6 +87,9 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                     dbHelper.insertIncidencia(db, incidence.name, incidence.urgence);
                     Log.i("add_incidence_success", "person name: "+incidence.name );
                     Toast.makeText(container.getContext(), "Incidence saved succesfully!", Toast.LENGTH_SHORT).show();
+                    incidencesAux.addAll(dbHelper.getIncidenceNames());
+                    for(int i = 0; i< incidencesAux.size(); i++)
+                        Log.i("incidencesAddedTest", String.valueOf(incidencesAux.get(i)));
                 }
             }
         });

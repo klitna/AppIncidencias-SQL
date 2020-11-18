@@ -9,7 +9,7 @@ public class Incidence {
         urgence="Default Urgence";
     }
 
-    Incidence(String name, String urgence){
+    public Incidence(String name, String urgence){
         this.name=name;
         this.urgence=urgence;
     }
@@ -17,4 +17,5 @@ public class Incidence {
     public String getName(){
         return this.name;
     }
+    public String getUrgence() {return this.urgence;}
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,20 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.DB.IncidenciaDBHelper;
 
+import java.util.ArrayList;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     IncidenciaDBHelper dbHelper;
     SQLiteDatabase db;
-
-    String [] incidenceNames;
-    String [] incidenceUrgences;
+    ArrayList<Incidence> incidencesList = new ArrayList<Incidence>();
     int rows;
-    final Context context;
 
-    public RecyclerViewAdapter(Context con, String[] arrN, String[] arrU, int count){
-        incidenceNames = arrN;
-        incidenceUrgences=arrU;
-        rows=count;
-        context = con;
+    public RecyclerViewAdapter(ListIncidences l, ArrayList<Incidence> i){
     }
 
     @NonNull
@@ -36,34 +32,34 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         dbHelper = new IncidenciaDBHelper(parent.getContext());
         db = dbHelper.getWritableDatabase();
         rows=dbHelper.getCountRows();
-        incidenceNames=dbHelper.getIncidenceNames();
-        incidenceUrgences=dbHelper.getUrgences();
-
+        incidencesList=dbHelper.getAllIncidences();
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int id) {
-        holder.nameTextView.setText(incidenceNames[id]);
-        holder.urgenceTextView.setText(incidenceUrgences[id]);
+        holder.nameTextView.setText(incidencesList.get(id).getName());
+        holder.urgenceTextView.setText(incidencesList.get(id).getUrgence());
         holder.idTextView.setText(id);
     }
 
     @Override
     public int getItemCount() {
-        return incidenceNames.length;
+        return incidencesList.size();
     }
 
         public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nameTextView;
         TextView urgenceTextView;
         TextView idTextView;
-        AbsoluteLayout layout;
+        GridLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.nameIncidenceItem);
+            urgenceTextView = itemView.findViewById(R.id.urgenceIncidence);
+            idTextView = itemView.findViewById(R.id.countUrgence);
             layout = itemView.findViewById(R.id.itemList);
         }
     }

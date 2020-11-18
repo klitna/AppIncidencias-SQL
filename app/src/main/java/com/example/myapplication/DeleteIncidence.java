@@ -8,11 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DeleteIncidence#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DeleteIncidence extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -26,6 +21,7 @@ public class DeleteIncidence extends Fragment {
 
     public DeleteIncidence() {
         // Required empty public constructor
+
     }
 
     @Override

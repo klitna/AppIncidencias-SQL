@@ -13,6 +13,8 @@ import com.example.myapplication.Incidence;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
@@ -57,28 +59,40 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public String[] getIncidenceNames(){
+    public ArrayList<String> getIncidenceNames(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(IncidenciaEntry.TABLE_NAME, null, null, null, null, null, null);
         cursor.moveToFirst();
-        String[] incidences = new String[cursor.getCount()];
+        ArrayList<String> incidences = new ArrayList<String>();
         for (int i = 0; i < cursor.getCount(); i++){
-            incidences[i] = cursor.getString(1);
+            incidences.add(cursor.getString(1));
             cursor.moveToNext();
         }
         return incidences;
     }
 
-    public String[] getUrgences(){
+    public ArrayList<String>  getUrgences(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(IncidenciaEntry.TABLE_NAME, null, null, null, null, null, null);
         cursor.moveToFirst();
-        String[] urgences = new String[cursor.getCount()];
+        ArrayList<String>  urgences = new ArrayList<String>();
         for (int i = 0; i < cursor.getCount(); i++){
-            urgences[i] = cursor.getString(2);
+            urgences.add(cursor.getString(1));
             cursor.moveToNext();
         }
         return urgences;
+    }
+
+    public ArrayList<Incidence> getAllIncidences(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(IncidenciaEntry.TABLE_NAME, null, null, null, null, null, null);
+        int dim = cursor.getCount();
+        ArrayList<String> incidenceNames = getIncidenceNames();
+        ArrayList<String> incidenceUrgences = getUrgences();
+        ArrayList<Incidence> i = new ArrayList<Incidence>();
+        for(int x=0; x<dim; x++)
+            i.add(new Incidence(incidenceNames.get(x), incidenceUrgences.get(x)));
+        return i;
     }
 
     public void deleteIncidenceId(int idDel)
