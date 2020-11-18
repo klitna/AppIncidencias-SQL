@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#07836A</color>
     <color name="customBlue">#0E8861</color>
+    <color name="customBlueLight">#65EFC3</color>
+    <color name="grey">#708881</color>
     <color name="white">#FFFFFF</color>
     <color name="backgroundLogin">#e0fbff</color>
     <color name="black">#000000</color>

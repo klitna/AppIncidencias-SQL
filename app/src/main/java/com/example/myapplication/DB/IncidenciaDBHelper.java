@@ -33,18 +33,26 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public static void insertIncidencia(SQLiteDatabase db, Incidence i){
+    public static void insertIncidencia(SQLiteDatabase db, String name, String urgence){
         //Check the bd is open
         if (db.isOpen()){
             ContentValues values = new ContentValues();
 
             //Insert the incidence getting all values
-            values.put(IncidenciaEntry.COLUMN_NAME_TITLE, i.getName());
-
+            values.put(IncidenciaEntry.COLUMN_NAME_TITLE, name);
+            values.put(IncidenciaEntry.COLUMN2_NAME_TITLE, urgence);
             db.insert(IncidenciaEntry.TABLE_NAME, null, values);
+
             db.close();
         }else{
             Log.d("sql","Database is closed");
         }
+    }
+
+    public void deleteRow(int value)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME+ " WHERE id ='"+value+"'");
+        db.close();
     }
 }

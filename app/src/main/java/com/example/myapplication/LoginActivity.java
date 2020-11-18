@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText pass = findViewById(R.id.loginPassword);
         final Button loginButton = findViewById(R.id.loginButton);
 
+        //temporary
         user.setText("admin");
         pass.setText("admin");
 
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username = user.getText().toString();
                 String password = pass.getText().toString();
                 if (username.equals("admin") && password.equals("admin")) {
-                    finishLogin();
+                    goToMenu();
                     Log.i("click", "logged");
                 }
                 else
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void finishLogin() {
+    public void goToMenu() {
         Intent intentMain = new Intent(this, MainActivity.class);
         startActivity(intentMain);
     }

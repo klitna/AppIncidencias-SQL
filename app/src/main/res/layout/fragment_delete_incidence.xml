@@ -5,6 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".DeleteIncidence">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/deleteIncidenceTitle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="ADD NEW INCIDENCE"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginBottom="60dp"
+        android:textStyle="bold"
+        android:textColor="@color/customBlue"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Working on it..."></TextView>
+
 
 </FrameLayout>

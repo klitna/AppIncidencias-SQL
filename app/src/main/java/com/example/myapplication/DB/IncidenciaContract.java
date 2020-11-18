@@ -8,5 +8,6 @@ public class IncidenciaContract {
         public static final String TABLE_NAME ="incidencia";
         public static final String ID = "id";
         public static final String COLUMN_NAME_TITLE = "title";
+        public static final String COLUMN2_NAME_TITLE = "urgence";
     }
 }

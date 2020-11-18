@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewAdapter /*extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>^*/{
-   /* private String [] array_noms;
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+    private String [] array_noms;
     private Context context;
 
     public RecyclerViewAdapter(Context con, String[] arrN){
@@ -27,7 +27,7 @@ public class RecyclerViewAdapter /*extends RecyclerView.Adapter<RecyclerViewAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int id) {
         holder.etiquetaNom.setText(array_noms[position]);
     }
 
@@ -45,7 +45,7 @@ public class RecyclerViewAdapter /*extends RecyclerView.Adapter<RecyclerViewAdap
             etiquetaNom = itemView.findViewById(R.id.userName);
             layout = itemView.findViewById(R.id.layout);
         }
-    }*/
+    }
 }
 
 

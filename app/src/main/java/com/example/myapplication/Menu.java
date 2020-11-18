@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -31,14 +32,23 @@ public class Menu extends Fragment {
                              Bundle savedInstanceState) {
 
         final View fMenu = inflater.inflate(R.layout.fragment_menu, container, false);
-        Button btnAdd = fMenu.findViewById(R.id.addIncidenceButton);
-        Button btnShow = fMenu.findViewById(R.id.listIncidenceButton);
-        Button btnDelete = fMenu.findViewById(R.id.deleteIncidenceButton);
-        Button btnDeleteAll = fMenu.findViewById(R.id.deleteIncidencesButton);
+        final Button btnAdd = fMenu.findViewById(R.id.addIncidenceButton);
+        final Button btnShow = fMenu.findViewById(R.id.listIncidenceButton);
+        final Button btnDelete = fMenu.findViewById(R.id.deleteIncidenceButton);
+        final Button btnDeleteAll = fMenu.findViewById(R.id.deleteIncidencesButton);
+
+        btnAdd.setBackgroundColor(Color.parseColor("#65EFC3"));
+        btnShow.setBackgroundColor(Color.parseColor("#708881"));
+        btnDelete.setBackgroundColor(Color.parseColor("#708881"));
+        btnDeleteAll.setBackgroundColor(Color.parseColor("#708881"));
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnAdd.setBackgroundColor(Color.parseColor("#65EFC3"));
+                btnShow.setBackgroundColor(Color.parseColor("#708881"));
+                btnDelete.setBackgroundColor(Color.parseColor("#708881"));
+                btnDeleteAll.setBackgroundColor(Color.parseColor("#708881"));
                 Log.i("click", "button add clicked");
                 menuManager = getFragmentManager();
                 menuTransaction = menuManager.beginTransaction();
@@ -51,6 +61,10 @@ public class Menu extends Fragment {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnAdd.setBackgroundColor(Color.parseColor("#708881"));
+                btnShow.setBackgroundColor(Color.parseColor("#65EFC3"));
+                btnDelete.setBackgroundColor(Color.parseColor("#708881"));
+                btnDeleteAll.setBackgroundColor(Color.parseColor("#708881"));
                 Log.i("click", "button show clicked");
                 menuManager = getFragmentManager();
                 menuTransaction = menuManager.beginTransaction();
@@ -63,6 +77,10 @@ public class Menu extends Fragment {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnAdd.setBackgroundColor(Color.parseColor("#708881"));
+                btnShow.setBackgroundColor(Color.parseColor("#708881"));
+                btnDelete.setBackgroundColor(Color.parseColor("#65EFC3"));
+                btnDeleteAll.setBackgroundColor(Color.parseColor("#708881"));
                 Log.i("click", "button delete one incidence clicked");
                 menuManager = getFragmentManager();
                 menuTransaction = menuManager.beginTransaction();
