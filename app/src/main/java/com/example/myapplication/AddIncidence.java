@@ -29,7 +29,7 @@ import com.example.myapplication.DB.IncidenciaDBHelper;
 
 import java.util.ArrayList;
 
-import static com.example.myapplication.DB.IncidenciaDBHelper.insertIncidencia;
+import static com.example.myapplication.DB.IncidenciaDBHelper.insertIncidence;
 
 public class AddIncidence extends Fragment implements AdapterView.OnItemSelectedListener  {
 
@@ -84,7 +84,7 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                     Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString());
                     incidence.name=incidenceName.getText().toString();
                     incidence.urgence=addIncidenceSpinner.getSelectedItem().toString();
-                    dbHelper.insertIncidencia(db, incidence.name, incidence.urgence);
+                    dbHelper.insertIncidence(db, incidence.name, incidence.urgence);
                     Log.i("add_incidence_success", "person name: "+incidence.name );
                     Toast.makeText(container.getContext(), "Incidence saved succesfully!", Toast.LENGTH_SHORT).show();
                     incidencesAux.addAll(dbHelper.getIncidenceNames());

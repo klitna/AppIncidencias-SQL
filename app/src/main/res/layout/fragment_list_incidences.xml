@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListIncidences">
+    tools:context=".ListIncidences"
+    android:background="@color/customBlue">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/incidencesRecycler"
-        android:layout_width="401dp"
-        android:layout_height="595dp" />
-    </FrameLayout>
+        android:layout_width="match_parent"
+        android:background="@color/customBlue"
+        android:layout_height="576dp" />
+</FrameLayout>

@@ -40,7 +40,7 @@ public class ListIncidences extends Fragment {
         db = dbHelper.getWritableDatabase();
         // Inflate the layout for this fragment
         View fListIncidences = inflater.inflate(R.layout.fragment_list_incidences, container, false);
-        ArrayList<Incidence> inci = dbHelper.getAllIncidences();
+        ArrayList<Incidence> inci =  dbHelper.getAllIncidences();
         for(int i=0; i<inci.size(); i++ )
             Log.i("ListIncidence: ", inci.get(i).getName());
        /*

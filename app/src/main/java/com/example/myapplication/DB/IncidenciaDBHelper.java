@@ -36,7 +36,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public static void insertIncidencia(SQLiteDatabase db, String name, String urgence){
+    public static void insertIncidence(SQLiteDatabase db, String name, String urgence){
         //Check the bd is open
         if (db.isOpen()){
             ContentValues values = new ContentValues();
