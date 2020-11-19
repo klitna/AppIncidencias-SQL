@@ -35,11 +35,11 @@
             android:text="Delete"></Button>
 
         <Button
-            android:id="@+id/deleteIncidencesButton"
+            android:id="@+id/aboutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="reset"></Button>
+            android:text="about"></Button>
     </LinearLayout>
     <!-- TODO: Update blank fragment layout -->
 </FrameLayout>
