@@ -40,9 +40,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int id) {
-        holder.nameTextView.setText(incidencesList.get(id).getName());
-        holder.urgenceTextView.setText(incidencesList.get(id).getUrgence());
-        holder.idTextView.setText(String.valueOf(id));
+        holder.nameTextView.setText("Incidence: "+incidencesList.get(id).getName());
+        holder.urgenceTextView.setText("Urgence: "+incidencesList.get(id).getUrgence());
+        holder.idTextView.setText("Id: "+String.valueOf(id));
     }
 
     @Override
