@@ -49,11 +49,8 @@ public class ListIncidences extends Fragment {
 */
         RecyclerView recyclerView = (RecyclerView)fListIncidences.findViewById(R.id.incidencesRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(fListIncidences.getContext()));
-
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, dbHelper.getAllIncidences());
-
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(fListIncidences.getContext()));
 
         return fListIncidences;
     }

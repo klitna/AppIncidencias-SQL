@@ -88,7 +88,7 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                     Log.i("add_incidence_success", "person name: "+incidence.name );
                     Toast.makeText(container.getContext(), "Incidence saved succesfully!", Toast.LENGTH_SHORT).show();
                     incidencesAux.addAll(dbHelper.getIncidenceNames());
-                    for(int i = 0; i< incidencesAux.size(); i++)
+                    for(int i = 0; i< dbHelper.getIncidenceNames().size(); i++)
                         Log.i("incidencesAddedTest", String.valueOf(incidencesAux.get(i)));
                 }
             }

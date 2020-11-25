@@ -23,6 +23,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     int rows;
 
     public RecyclerViewAdapter(ListIncidences l, ArrayList<Incidence> i){
+        incidencesList.addAll(i);
     }
 
     @NonNull
@@ -32,7 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         dbHelper = new IncidenciaDBHelper(parent.getContext());
         db = dbHelper.getWritableDatabase();
         rows=dbHelper.getCountRows();
-        incidencesList=dbHelper.getAllIncidences();
+        //incidencesList=dbHelper.getAllIncidences();
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -41,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int id) {
         holder.nameTextView.setText(incidencesList.get(id).getName());
         holder.urgenceTextView.setText(incidencesList.get(id).getUrgence());
-        holder.idTextView.setText(id);
+        holder.idTextView.setText(String.valueOf(id));
     }
 
     @Override
