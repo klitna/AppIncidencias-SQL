@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="incidencesUrgence">
+        <item name="high">Alta</item>
+        <item name="medium">Media</item>
+        <item name="low">Baja</item>
+    </string-array>
+    <string name="app_title">APP INCIDENCIAS</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">ENTRAR</string>
+    <string name="save">GUARDAR</string>
+    <string name="add">AÑADIR</string>
+    <string name="delete">ELIMINAR</string>
+    <string name="delete_incidencia">ELIMINAR INCIDENCIA</string>
+    <string name="add_incidence">AÑADIR INCIDENCIA</string>
+    <string name="urgence">Urgence</string>
+    <string name="incidence">Incidence</string>
+    <string name="about">INFO</string>
+    <string name="about_title">SOBRE ESTA APP</string>
+</resources>
