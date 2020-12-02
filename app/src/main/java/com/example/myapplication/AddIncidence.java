@@ -37,7 +37,6 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
     FragmentTransaction addIncidenceTransaction = null;
     IncidenciaDBHelper dbHelper;
     SQLiteDatabase db;
-    Incidence incidence;
     public AddIncidence() {
         // Required empty public constructor
     }
@@ -48,7 +47,7 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
         // Inflate the layout for this fragment
         View fAddIncidence = inflater.inflate(R.layout.fragment_add_incidence, container, false);
 
-        dbHelper = new IncidenciaDBHelper(container.getContext());
+        dbHelper = new IncidenciaDBHelper(getContext());
         db = dbHelper.getWritableDatabase();
         final ArrayList<String> incidencesAux = new ArrayList<String>();
 
@@ -82,18 +81,12 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                     Toast.makeText(container.getContext(), "Name cannot be empty!", Toast.LENGTH_SHORT).show();
                 } else {
                     Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString());
-                    incidence.name=incidenceName.getText().toString();
-                    incidence.urgence=addIncidenceSpinner.getSelectedItem().toString();
-                    dbHelper.insertIncidence(db, incidence.name, incidence.urgence);
+                    dbHelper.insertIncidence(db, incidence);
                     Log.i("add_incidence_success", "person name: "+incidence.name );
                     Toast.makeText(container.getContext(), "Incidence saved succesfully!", Toast.LENGTH_SHORT).show();
-                    incidencesAux.addAll(dbHelper.getIncidenceNames());
-                    for(int i = 0; i< dbHelper.getIncidenceNames().size(); i++)
-                        Log.i("incidencesAddedTest", String.valueOf(incidencesAux.get(i)));
-                }
+                    }
             }
         });
-
         return fAddIncidence;
     }
 

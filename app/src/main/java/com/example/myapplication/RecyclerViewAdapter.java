@@ -41,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int id) {
         holder.nameTextView.setText("Incidence: "+incidencesList.get(id).getName());
-        holder.urgenceTextView.setText("Urgence: "+incidencesList.get(id).getUrgence());
+        holder.urgenceTextView.setText("Urgency: "+incidencesList.get(id).getUrgency());
         holder.idTextView.setText("Id: "+String.valueOf(id));
     }
 

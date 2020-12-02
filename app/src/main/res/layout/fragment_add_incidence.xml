@@ -20,7 +20,7 @@
             android:id="@+id/addIncidenceTitle"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="ADD NEW INCIDENCE"
+            android:text="@string/add_incidence"
             android:textSize="30dp"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:hint="Name"
+            android:hint="@string/incidence"
             android:inputType="textPersonName"
             android:text=""
             android:textSize="20dp" />
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/customBlue"
-            android:text="SAVE"
+            android:text="@string/save"
             android:textColor="@color/white" />
 
 

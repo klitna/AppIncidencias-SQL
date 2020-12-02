@@ -5,17 +5,19 @@
         <item name="low">Low</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">App Incidences</string>
     <string name="app_title">INCIDENCE APP</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
     <string name="save">SAVE</string>
     <string name="add">ADD</string>
+    <string name="show">SHOW</string>
     <string name="delete">DELETE</string>
-    <string name="delete_incidencia">Delete\n incidence</string>
-    <string name="add_incidence">Add\n incidence</string>
-    <string name="urgence">Urgencia</string>
-    <string name="incidence">Incidencia</string>
+    <string name="delete_incidencia">Delete incidence</string>
+    <string name="add_incidence">Add incidence</string>
+    <string name="urgence">Urgence</string>
+    <string name="incidence">Incidence</string>
     <string name="about">ABOUT</string>
     <string name="about_title">ABOUT THIS APP</string>
 
