@@ -36,7 +36,7 @@ public class DeleteIncidence extends Fragment {
                 if(!idString.matches(""))
                 {
                     int id = Integer.parseInt(idString);
-                    dbHelper.deleteIncidence(db, id);
+                    dbHelper.deleteIncidenceById(db, id);
                 }
                 else
                     Toast.makeText(getActivity(), "Incidence saved succesfuly!", Toast.LENGTH_LONG).show();
