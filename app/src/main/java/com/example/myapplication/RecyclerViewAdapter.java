@@ -49,7 +49,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return incidencesList.size();
     }
-
         public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nameTextView;
         TextView urgenceTextView;

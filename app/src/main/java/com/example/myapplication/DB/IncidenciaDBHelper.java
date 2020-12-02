@@ -37,11 +37,9 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
     }
 
     public static void insertIncidence(SQLiteDatabase db, Incidence inci){
-        //Check the bd is open
         if (db.isOpen()){
             ContentValues values = new ContentValues();
 
-            //Insert the incidence getting all values
             values.put(IncidenciaEntry.COLUMN_NAME_TITLE, inci.getName());
             values.put(IncidenciaEntry.COLUMN2_NAME_TITLE, inci.getUrgency());
             db.insert(IncidenciaEntry.TABLE_NAME, null, values);
@@ -52,10 +50,11 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void deleteIncidence(SQLiteDatabase db, int idDelete)
+    public void deleteIncidence(SQLiteDatabase db, String idDelete)
     {
         //SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME+ " WHERE Id ='"+idDelete+"'");
+
+        db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME+ " WHERE Id = "+Integer.parseInt(idDelete));
         db.close();
     }
 
@@ -73,11 +72,19 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         return incidences;
     }
 
-    public void deleteIncidenceById(SQLiteDatabase db, int idDel)
+    public boolean deleteIncidenceById(SQLiteDatabase db, String idDel)
     {
         //SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME+ " WHERE  id = " + idDel);
-        db.close();
+        int id = Integer.parseInt(idDel);
+        try {
+            db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME + " WHERE  id = " + id);
+            db.close();
+            return true;
+        }catch(Exception e) {
+            Log.i("DeleteIncidence: ", "Error");
+            return false;
+        }
+
     }
 
     public int getCountRows(){
