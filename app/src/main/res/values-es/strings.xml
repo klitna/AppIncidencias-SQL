@@ -20,6 +20,7 @@
     <string name="incidence">Incidencia</string>
     <string name="about">INFO</string>
     <string name="about_title">SOBRE ESTA APP</string>
-    <string name="settings">AJSTS </string>
+    <string name="settings">AJUSTES </string>
     <string name="language">Idioma: </string>
+    <string name="languageChange">Cambiar idioma</string>
 </resources>

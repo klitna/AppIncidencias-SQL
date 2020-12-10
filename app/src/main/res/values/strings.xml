@@ -20,8 +20,9 @@
     <string name="incidence">Incidence</string>
     <string name="about">ABOUT</string>
     <string name="about_title">ABOUT THIS APP</string>
-    <string name="settings">SETTNGS</string>
-    <string name="language" >Language: </string>/>
+    <string name="settings">SETTINGS</string>
+    <string name="language" >Language: </string>
+    <string name="languageChange">Change language</string>/>
 
 </resources>
 
