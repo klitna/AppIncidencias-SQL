@@ -7,6 +7,7 @@ public class Incidence {
     Incidence(){
         name="Default Name";
         urgency="Default Urgence";
+
     }
 
     public Incidence(String name, String urgency){

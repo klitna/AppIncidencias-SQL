@@ -35,11 +35,12 @@ public class DeleteIncidence extends Fragment {
             public void onClick(View v) {
                 if(!idString.matches(""))
                 {
-                    int id = Integer.parseInt(idString);
-                    dbHelper.deleteIncidence(db, id);
+                    boolean ok = dbHelper.deleteIncidenceById(db, idString);
+                    if(ok)
+                        Toast.makeText(getActivity(), "Incidence saved succesfuly!", Toast.LENGTH_LONG).show();
                 }
                 else
-                    Toast.makeText(getActivity(), "Incidence saved succesfuly!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Gone wrong", Toast.LENGTH_LONG).show();
             }
         });
         return fDeleteIncidence;
