@@ -1,10 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="incidencesUrgence">
-        <item name="high">High</item>
-        <item name="medium">Medium</item>
-        <item name="low">Low</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="app_name">App Incidences</string>
     <string name="app_title">INCIDENCE APP</string>
     <string name="username">Username</string>
@@ -22,6 +17,4 @@
     <string name="about_title">ABOUT THIS APP</string>
     <string name="settings">SETTINGS</string>
     <string name="language" >Language: </string>/>
-
 </resources>
-
