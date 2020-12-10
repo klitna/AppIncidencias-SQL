@@ -20,9 +20,9 @@ import com.example.myapplication.DB.IncidenciaDBHelper;
 import java.util.Locale;
 
 
-public class SettingsFragment extends Fragment {
+public class Settings extends Fragment {
 
-    Configuration config = new Configuration(getResources().getConfiguration());
+
     Locale esLocale = new Locale("es");
     Locale enLocale = new Locale("en");
     IncidenciaDBHelper dbHelper;
@@ -31,7 +31,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View fSettings = inflater.inflate(R.layout.fragment_settings, container, false);
-
+        final Configuration config = new Configuration(getResources().getConfiguration());
         dbHelper = new IncidenciaDBHelper(container.getContext());
         db = dbHelper.getWritableDatabase();
         ImageButton toEsButton = fSettings.findViewById(R.id.buttonSpanishFlag);
