@@ -27,7 +27,9 @@ import android.widget.Toast;
 
 import com.example.myapplication.DB.IncidenciaDBHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static com.example.myapplication.DB.IncidenciaDBHelper.insertIncidence;
 
@@ -52,6 +54,7 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
         final ArrayList<String> incidencesAux = new ArrayList<String>();
 
         final EditText incidenceName = (EditText)fAddIncidence.findViewById(R.id.editTextTextPersonName);
+        final TextView dateIncidence = fAddIncidence.findViewById(R.id.dateIncidence);
         final Button saveIncidenceButton=(Button)fAddIncidence.findViewById(R.id.saveIncidenceButton);
 
         final Spinner addIncidenceSpinner = (Spinner) fAddIncidence.findViewById(R.id.addIncidenceSpinner);
@@ -80,7 +83,9 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                 if (incidenceName.equals(" ") || incidenceName.equals(null)) {
                     Toast.makeText(container.getContext(), "Name cannot be empty!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString());
+                    SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                    Date date = new Date(System.currentTimeMillis());
+                    Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString(), formatter.format(date));
                     dbHelper.insertIncidence(db, incidence);
                     Log.i("add_incidence_success", "person name: "+incidence.name );
                     Toast.makeText(container.getContext(), "Incidence saved succesfully!", Toast.LENGTH_SHORT).show();

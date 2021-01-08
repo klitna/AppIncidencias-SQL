@@ -13,7 +13,9 @@ import com.example.myapplication.Incidence;
 
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
@@ -42,6 +44,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
             values.put(IncidenciaEntry.COLUMN_NAME_TITLE, inci.getName());
             values.put(IncidenciaEntry.COLUMN2_NAME_TITLE, inci.getUrgency());
+            values.put(IncidenciaEntry.COLUMN3_NAME_TITLE, inci.getDate());
             db.insert(IncidenciaEntry.TABLE_NAME, null, values);
 
             db.close();
@@ -66,8 +69,8 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             String title = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.COLUMN_NAME_TITLE));
             String urgency = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.COLUMN2_NAME_TITLE));
-
-            incidences.add(new Incidence(title, urgency));
+            String date = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.COLUMN3_NAME_TITLE));
+            incidences.add(new Incidence(title, urgency, date));
         }
         return incidences;
     }
