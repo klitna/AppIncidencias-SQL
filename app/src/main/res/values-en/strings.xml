@@ -18,4 +18,6 @@
     <string name="settings">SETTINGS</string>
     <string name="language" >Language: </string>
     <string name="languageChange">Change language</string>/>
+    <string name="deleteAll">This option will delete all the incidences forever. If you press the button, you will never restore the deleted incidences. </string>
+    <string name="noIncidences">No incidences to show</string>
 </resources>

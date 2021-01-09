@@ -48,16 +48,14 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fAddIncidence = inflater.inflate(R.layout.fragment_add_incidence, container, false);
-
         dbHelper = new IncidenciaDBHelper(getContext());
         db = dbHelper.getWritableDatabase();
         final ArrayList<String> incidencesAux = new ArrayList<String>();
 
         final EditText incidenceName = (EditText)fAddIncidence.findViewById(R.id.editTextTextPersonName);
-        final TextView dateIncidence = fAddIncidence.findViewById(R.id.dateIncidence);
         final Button saveIncidenceButton=(Button)fAddIncidence.findViewById(R.id.saveIncidenceButton);
-
         final Spinner addIncidenceSpinner = (Spinner) fAddIncidence.findViewById(R.id.addIncidenceSpinner);
+
         addIncidenceSpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) getView());
         String[] urgenceValues;
         Resources res = getResources();
@@ -80,10 +78,11 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
         saveIncidenceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (incidenceName.equals(" ") || incidenceName.equals(null)) {
+                String incidenceNameString = incidenceName.getText().toString();
+                if (incidenceNameString.equals("") || incidenceNameString.equals(null)) {
                     Toast.makeText(container.getContext(), "Name cannot be empty!", Toast.LENGTH_SHORT).show();
                 } else {
-                    SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+                    SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd\n HH:mm:ss z");
                     Date date = new Date(System.currentTimeMillis());
                     Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString(), formatter.format(date));
                     dbHelper.insertIncidence(db, incidence);

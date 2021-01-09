@@ -12,8 +12,6 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="horizontal"
-    android:gridColumnCount="2"
-    android:gridRowCount="1"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -44,7 +42,8 @@
         android:layout_x="234dp"
         android:layout_y="11dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="30px" />
 
     <TextView
         android:id="@+id/dateIncidence"
@@ -57,7 +56,8 @@
         android:layout_x="234dp"
         android:layout_y="11dp"
         android:gravity="center"
-        android:text="Date" />
+        android:text="Date"
+        android:textSize="30px" />
 
     <TextView
         android:id="@+id/countUrgence"

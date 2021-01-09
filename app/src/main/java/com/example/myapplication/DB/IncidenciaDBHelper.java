@@ -21,7 +21,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "incidencies.db";
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaContract.IncidenciaEntry.TABLE_NAME + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN2_NAME_TITLE + " TEXT)";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaContract.IncidenciaEntry.TABLE_NAME + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN2_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN3_NAME_TITLE + " TEXT )";
 
 
     public IncidenciaDBHelper(Context context) {
@@ -75,12 +75,11 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         return incidences;
     }
 
-    public boolean deleteIncidenceById(SQLiteDatabase db, String idDel)
+    public boolean deleteIncidenceById(SQLiteDatabase db)
     {
         //SQLiteDatabase db = this.getWritableDatabase();
-        int id = Integer.parseInt(idDel);
         try {
-            db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME + " WHERE  id = " + id);
+            db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME);
             db.close();
             return true;
         }catch(Exception e) {

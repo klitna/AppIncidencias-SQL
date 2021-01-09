@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.DB.IncidenciaDBHelper;
@@ -27,17 +28,13 @@ public class DeleteIncidence extends Fragment {
         dbHelper = new IncidenciaDBHelper(container.getContext());
         db = dbHelper.getWritableDatabase();
 
-        EditText idEditText = fDeleteIncidence.findViewById(R.id.idIncidenceDelete);
-        Button delete = fDeleteIncidence.findViewById(R.id.deleteIncidenceByIdButton);
-        final String idString = idEditText.getText().toString();
+        final Button delete = fDeleteIncidence.findViewById(R.id.deleteIncidenceByIdButton);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!idString.matches(""))
-                {
-                    boolean ok = dbHelper.deleteIncidenceById(db, idString);
-                    if(ok)
-                        Toast.makeText(getActivity(), "Incidence saved succesfuly!", Toast.LENGTH_LONG).show();
+                boolean ok = dbHelper.deleteIncidenceById(db);
+                if(ok) {
+                    Toast.makeText(getActivity(), "Incidence saved succesfuly!", Toast.LENGTH_LONG).show();
                 }
                 else
                     Toast.makeText(getActivity(), "Gone wrong", Toast.LENGTH_LONG).show();
