@@ -31,9 +31,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         View fList = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_list_incidences, parent, false);
-        TextView noIncidences = fList.findViewById(R.id.noIncidences);
-        if(incidencesList.size()>0)
-            noIncidences.setTextColor(952417);
         dbHelper = new IncidenciaDBHelper(parent.getContext());
         db = dbHelper.getWritableDatabase();
         rows=dbHelper.getCountRows();
