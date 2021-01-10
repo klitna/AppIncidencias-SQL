@@ -21,7 +21,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "incidencies.db";
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaContract.IncidenciaEntry.TABLE_NAME + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN2_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN3_NAME_TITLE + " TEXT )";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaContract.IncidenciaEntry.TABLE_NAME + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN2_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN3_NAME_TITLE + " TEXT ," + IncidenciaEntry.COLUMN4_NAME_TITLE + " TEXT )";
 
 
     public IncidenciaDBHelper(Context context) {
@@ -45,6 +45,7 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
             values.put(IncidenciaEntry.COLUMN_NAME_TITLE, inci.getName());
             values.put(IncidenciaEntry.COLUMN2_NAME_TITLE, inci.getUrgency());
             values.put(IncidenciaEntry.COLUMN3_NAME_TITLE, inci.getDate());
+            values.put(IncidenciaEntry.COLUMN4_NAME_TITLE, inci.getState());
             db.insert(IncidenciaEntry.TABLE_NAME, null, values);
 
             db.close();
@@ -70,7 +71,8 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
             String title = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.COLUMN_NAME_TITLE));
             String urgency = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.COLUMN2_NAME_TITLE));
             String date = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.COLUMN3_NAME_TITLE));
-            incidences.add(new Incidence(title, urgency, date));
+            int state = cursor.getInt(cursor.getColumnIndex(IncidenciaEntry.COLUMN4_NAME_TITLE));
+            incidences.add(new Incidence(title, urgency, date, state));
         }
         return incidences;
     }

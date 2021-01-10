@@ -1,19 +1,15 @@
 package com.example.myapplication;
-import android.content.Context;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsoluteLayout;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myapplication.DB.IncidenciaDBHelper;
-
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
@@ -45,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.urgenceTextView.setText("Urgency: "+incidencesList.get(id).getUrgency());
         holder.idTextView.setText("Id: "+String.valueOf(id));
         holder.dateTextView.setText(incidencesList.get(id).getDate());
+
     }
 
     @Override
@@ -56,6 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView urgenceTextView;
         TextView idTextView;
         TextView dateTextView;
+        ImageView stateCircle;
         GridLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             urgenceTextView = itemView.findViewById(R.id.urgenceIncidence);
             idTextView = itemView.findViewById(R.id.countUrgence);
             dateTextView = itemView.findViewById(R.id.dateIncidence);
+            stateCircle = itemView.findViewById(R.id.stateCircle);
             layout = itemView.findViewById(R.id.itemList);
         }
     }

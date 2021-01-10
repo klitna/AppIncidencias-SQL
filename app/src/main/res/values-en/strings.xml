@@ -22,4 +22,9 @@
     <string name="noIncidences">No incidences to show</string>
     <string name="deleteAllToast">All the incidences deleted succesfuly!</string>
     <string name="cancel">Cancel</string>
+    <string name="date">Date</string>
+    <string name="state">state</string>
+    <string name="pending">Pending</string>
+    <string name="assigned">Assigned</string>
+    <string name="resolved">Resolved</string>
 </resources>

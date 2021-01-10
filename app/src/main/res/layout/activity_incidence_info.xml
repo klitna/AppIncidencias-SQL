@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IncidenceInfoActivity">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30px">
+        <ImageButton
+            android:id="@+id/backToListIncidences"
+            android:background="@drawable/arrow_back"
+            />
+
+        <ImageButton
+            android:id="@+id/stateColor"
+            android:layout_height="49dp"
+            android:layout_row="1"
+            android:backgroundTint="@color/red" />
+        <TextView
+            android:id="@+id/incidenceInfoTitle"
+            android:text="This is a sample text"
+            android:textColor="@color/customBlue"
+            android:layout_row="1"
+            android:layout_columnSpan="3"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            />
+
+        <TextView
+            android:id="@+id/dateIncidenceActivity"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:text="@string/date"
+            android:layout_margin="40px"
+            android:textSize="45px"
+            />
+
+        <TextView
+            android:id="@+id/urgenceIncidenceActivity"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:text="@string/urgence"
+            android:layout_margin="40px"
+            android:textSize="45px"
+            />
+
+        <TextView
+            android:id="@+id/stateIncidenceActivity"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:text="@string/state"
+            android:layout_margin="40px"
+            android:textSize="45px"
+            />
+    </GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,7 +84,7 @@ public class AddIncidence extends Fragment implements AdapterView.OnItemSelected
                 } else {
                     SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd\n HH:mm:ss z");
                     Date date = new Date(System.currentTimeMillis());
-                    Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString(), formatter.format(date));
+                    Incidence incidence = new Incidence(incidenceName.getText().toString(), addIncidenceSpinner.getSelectedItem().toString(), formatter.format(date), 0);
                     dbHelper.insertIncidence(db, incidence);
                     Log.i("add_incidence_success", "person name: "+incidence.name );
                     Toast.makeText(container.getContext(), "Incidence saved succesfully!", Toast.LENGTH_SHORT).show();

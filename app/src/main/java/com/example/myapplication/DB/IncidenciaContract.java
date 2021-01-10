@@ -10,5 +10,6 @@ public class IncidenciaContract {
         public static final String COLUMN_NAME_TITLE = "Title";
         public static final String COLUMN2_NAME_TITLE = "Urgence";
         public static final String COLUMN3_NAME_TITLE = "Date";
+        public static final String COLUMN4_NAME_TITLE = "State";
     }
 }

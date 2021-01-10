@@ -21,12 +21,16 @@
     <string name="about">ABOUT</string>
     <string name="about_title">ABOUT THIS APP</string>
     <string name="settings">SETTINGS</string>
-    <string name="language" >Language: </string>
+    <string name="language">Language: </string>
     <string name="languageChange">Change language</string>/>
     <string name="deleteAll">This option will delete all the incidences forever. If you press the OK button, you will never restore the deleted incidences. </string>
     <string name="noIncidences">No incidences to show yet</string>
     <string name="deleteAllToast">All the incidences deleted succesfuly!</string>
     <string name="cancel">Cancel</string>
-
+    <string name="date">Date</string>
+    <string name="state">State</string>
+    <string name="pending">Pending</string>
+    <string name="assigned">Assigned</string>
+    <string name="resolved">Resolved</string>
 </resources>
 

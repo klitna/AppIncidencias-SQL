@@ -27,4 +27,9 @@
     <string name="noIncidences">De momento no hay incidencias para mostrar</string>
     <string name="deleteAllToast">Todas las incidencias eliminadas satisfactoriamente!</string>
     <string name="cancel">Cancelar</string>
+    <string name="date">Data</string>
+    <string name="state">Estado</string>
+    <string name="pending">Pendiente</string>
+    <string name="assigned">Asignsada</string>
+    <string name="resolved">Resuelta</string>
 </resources>

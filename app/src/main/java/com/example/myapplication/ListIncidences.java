@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -43,10 +44,18 @@ public class ListIncidences extends Fragment {
         ArrayList<Incidence> inci =  dbHelper.getAllIncidences(db);
         for(int i=0; i<inci.size(); i++ )
             Log.i("ListIncidence: ", inci.get(i).getName());
-       /*
-       ArrayList<String> arrN = dbHelper.getIncidenceNames();
-        ArrayList<String>  arrU= dbHelper.getUrgences();
-*/
+
+        /*final Button goToActivity = fListIncidences.findViewById(R.id.goToIncidenceButton);
+        goToActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String value="Hello world";
+                Intent i = new Intent(getActivity(), IncidenceInfoActivity.class);
+                i.putExtra("key",value);
+                startActivity(i);
+            }
+        });*/
+
         RecyclerView recyclerView = (RecyclerView)fListIncidences.findViewById(R.id.incidencesRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(fListIncidences.getContext()));
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, dbHelper.getAllIncidences(db));
@@ -54,4 +63,6 @@ public class ListIncidences extends Fragment {
 
         return fListIncidences;
     }
+
+
 }
