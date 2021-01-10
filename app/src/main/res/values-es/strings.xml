@@ -23,6 +23,8 @@
     <string name="settings">AJUSTES </string>
     <string name="language">Idioma: </string>
     <string name="languageChange">Cambiar idioma</string>
-    <string name="deleteAll">Esta opción eliminará las incidencias para siempre. Si aprietas el botón de abajo, nunca podrás recuperar las incidencias borradas. </string>
+    <string name="deleteAll">Esta opción eliminará las incidencias para siempre. Si aprietas el botón OK, nunca podrás recuperar las incidencias borradas. </string>
     <string name="noIncidences">De momento no hay incidencias para mostrar</string>
+    <string name="deleteAllToast">Todas las incidencias eliminadas satisfactoriamente!</string>
+    <string name="cancel">Cancelar</string>
 </resources>

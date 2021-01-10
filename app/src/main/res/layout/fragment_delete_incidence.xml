@@ -28,17 +28,6 @@
             android:textStyle="bold"
             android:textColor="@color/customBlue"/>
 
-        <TextView
-            android:id="@+id/idIncidenceDelete"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:inputType="textPersonName"
-            android:text="@string/deleteAll"
-            android:textSize="20dp" />
-
         <Button
             android:id="@+id/deleteIncidenceByIdButton"
             android:layout_width="match_parent"
