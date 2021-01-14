@@ -38,8 +38,8 @@ public class IncidenceInfoActivity extends AppCompatActivity {
             date = extra.getString("date");
             urgence = extra.getString("urgence");
         }
-        nameTextView.setText(getString(R.string.date) + name);
-        dateTextView.setText(date);
+        nameTextView.setText(name);
+        dateTextView.setText(getString(R.string.date)+": "+ date);
         urgenceTextView.setText(urgence);
     }
 }
