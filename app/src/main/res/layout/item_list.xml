@@ -1,103 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemList"
-    android:layout_height="80dp"
-    android:clickable="true"
-    android:layout_width="match_parent"
-    android:layout_marginRight="40dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginTop="30dp"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="horizontal"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-
-    <TextView
-        android:id="@+id/nameIncidenceItem"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:layout_margin="5dp"
+<LinearLayout android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="horizontal">
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/itemList"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:layout_width="match_parent"
         android:layout_marginLeft="15dp"
-        android:layout_weight="1"
-        android:layout_x="21dp"
-        android:layout_y="8dp"
-        android:text="TextView"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="45px"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/stateCircle"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_marginTop="12dp"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:layout_marginLeft="3dp"
-        android:background="@drawable/red_circle"
-        android:scaleType="fitXY"
-        android:contentDescription="TODO" />
-
-    <TextView
-        android:id="@+id/urgenceIncidence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="1"
-        android:layout_column="0"
-        android:layout_margin="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_weight="1"
-        android:layout_x="234dp"
-        android:layout_y="11dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
         android:gravity="center"
-        android:text="TextView"
-        android:textSize="30px" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/dateIncidence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="1"
-        android:layout_column="1"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_x="234dp"
-        android:layout_y="11dp"
-        android:gravity="center"
-        android:text="Date"
-        android:textSize="30px" />
+        <TextView
+            android:id="@+id/nameIncidenceItem"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:layout_x="21dp"
+            android:layout_y="8dp"
+            android:text="TextView"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="45px"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/countUrgence"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="1"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_x="22dp"
-        android:layout_y="33dp"
-        android:gravity="center"
-        android:text="TextView" />
+        <ImageView
+            android:id="@+id/stateCircle"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/red_circle"
+            android:scaleType="fitXY"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/urgenceIncidence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:layout_x="234dp"
+            android:layout_y="11dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/dateIncidence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_x="234dp"
+            android:layout_y="11dp"
+            android:gravity="center"
+            android:text="Date"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/countUrgence"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_x="22dp"
+            android:layout_y="33dp"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <ImageButton
+            android:id="@+id/goToIncidenceButton"
+            android:layout_width="53dp"
+            android:layout_height="match_parent"
+            android:layout_row="0"
+            android:layout_rowSpan="2"
+            android:layout_column="2"
+            android:layout_columnSpan="2"
+            android:layout_x="310dp"
+            android:layout_y="2dp"
+            android:onClick="onItemClick"
+            android:background="@drawable/next"></ImageButton>
+    </GridLayout>
 
     <ImageButton
-        android:id="@+id/goToIncidenceButton"
-        android:layout_width="53dp"
-        android:layout_height="match_parent"
-        android:layout_row="0"
-        android:layout_rowSpan="2"
-        android:layout_column="2"
-        android:layout_columnSpan="2"
-        android:layout_x="310dp"
-        android:layout_y="2dp"
-        android:background="@drawable/next"
-        android:scaleType="fitXY"></ImageButton>
-
-
-</GridLayout>
+        android:id="@+id/deleteItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/delete"
+        android:layout_margin="20px"
+        android:layout_gravity="center"/>
+</LinearLayout>

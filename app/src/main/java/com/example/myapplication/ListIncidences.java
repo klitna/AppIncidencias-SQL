@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,24 +47,19 @@ public class ListIncidences extends Fragment {
         for(int i=0; i<inci.size(); i++ )
             Log.i("ListIncidence: ", inci.get(i).getName());
 
-        /*final Button goToActivity = fListIncidences.findViewById(R.id.goToIncidenceButton);
-        goToActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String value="Hello world";
-                Intent i = new Intent(getActivity(), IncidenceInfoActivity.class);
-                i.putExtra("key",value);
-                startActivity(i);
-            }
-        });*/
-
         RecyclerView recyclerView = (RecyclerView)fListIncidences.findViewById(R.id.incidencesRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(fListIncidences.getContext()));
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, dbHelper.getAllIncidences(db));
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dbHelper.getAllIncidences(db));
         recyclerView.setAdapter(adapter);
 
         return fListIncidences;
     }
-
+    public void changesAdapter(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (Build.VERSION.SDK_INT >= 26) {
+            ft.setReorderingAllowed(false);
+        }
+        ft.detach(this).attach(this).commit();
+    }
 
 }

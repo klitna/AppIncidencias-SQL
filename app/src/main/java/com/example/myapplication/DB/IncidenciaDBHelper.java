@@ -56,8 +56,6 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
     public void deleteIncidence(SQLiteDatabase db, String idDelete)
     {
-        //SQLiteDatabase db = this.getWritableDatabase();
-
         db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME+ " WHERE Id = "+Integer.parseInt(idDelete));
         db.close();
     }
