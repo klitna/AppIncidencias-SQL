@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.DB.IncidenciaDBHelper;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     IncidenciaDBHelper dbHelper;
@@ -26,6 +29,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     ArrayList<Incidence> incidencesList = new ArrayList<Incidence>();
     int rows;
     Context context;
+    ViewHolder holderGlobal = null;
     public RecyclerViewAdapter(ArrayList<Incidence> i){
         incidencesList.addAll(i);
     }
@@ -45,16 +49,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int id) {
-        holder.nameTextView.setText(incidencesList.get(id).getName());
-        holder.urgenceTextView.setText(context.getResources().getString(R.string.urgence)+": " +incidencesList.get(id).getUrgency());
-        holder.idTextView.setText("Id: "+String.valueOf(id));
-        holder.dateTextView.setText(incidencesList.get(id).getDate());
-        if (incidencesList.get(id).getState()==0)
-            holder.stateCircle.setBackground(ContextCompat.getDrawable(context, R.drawable.red_circle));
-        else if(incidencesList.get(id).getState()==1)
-            holder.stateCircle.setBackground(ContextCompat.getDrawable(context, R.drawable.orange_circle));
-        else
-            holder.stateCircle.setBackground(ContextCompat.getDrawable(context, R.drawable.green_circle));
+        holderGlobal = holder;
+        sendDataToAdapter(holder, id);
     }
 
     @Override
@@ -86,6 +82,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     i.putExtra("name",nameTextView.getText().toString());
                     i.putExtra("urgence",urgenceTextView.getText().toString());
                     i.putExtra( "date", dateTextView.getText().toString());
+                    i.putExtra("id", idTextView.getText().toString().replace("Id: ", ""));
                     itemView.getContext().startActivity(i);
                 }
             });
@@ -103,4 +100,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             });
         }
     }
+
+    public void sendDataToAdapter(@NonNull ViewHolder holder, int id){
+        holder.nameTextView.setText(incidencesList.get(id).getName());
+        holder.urgenceTextView.setText(context.getResources().getString(R.string.urgence)+": " +incidencesList.get(id).getUrgency());
+        holder.idTextView.setText("Id: "+String.valueOf(id));
+        holder.dateTextView.setText(incidencesList.get(id).getDate());
+        if (incidencesList.get(id).getState()==0)
+            holder.stateCircle.setBackground(ContextCompat.getDrawable(context, R.drawable.red_circle));
+        else if(incidencesList.get(id).getState()==1)
+            holder.stateCircle.setBackground(ContextCompat.getDrawable(context, R.drawable.orange_circle));
+        else
+            holder.stateCircle.setBackground(ContextCompat.getDrawable(context, R.drawable.green_circle));
+    }
+
+    public void orderByDate(){
+
+    }
+
 }

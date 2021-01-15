@@ -32,5 +32,9 @@
     <string name="pending">Pending</string>
     <string name="assigned">Assigned</string>
     <string name="resolved">Resolved</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pressToChangeState">Press the button to change the state</string>
+    <string name="change">Change</string>
 </resources>
 

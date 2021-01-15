@@ -95,4 +95,19 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         return cursor.getCount();
     }
+
+    public void changeState(SQLiteDatabase db, Incidence i)
+    {
+        //UPDATE table
+        //SET column_1 = new_value_1,
+        //    column_2 = new_value_2
+        //WHERE
+        //    search_condition
+        try {
+            db.execSQL("UPDATE " + IncidenciaEntry.TABLE_NAME + " SET " + IncidenciaEntry.COLUMN4_NAME_TITLE + " = " + i.getState() + " WHERE "+IncidenciaEntry.COLUMN_NAME_TITLE+" = "+i.getName());
+            db.close();
+        }catch(Exception e) {
+            Log.i("DeleteIncidence: ", "Error");
+        }
+    }
 }

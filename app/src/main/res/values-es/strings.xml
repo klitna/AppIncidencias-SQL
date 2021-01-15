@@ -32,4 +32,6 @@
     <string name="pending">Pendiente</string>
     <string name="assigned">Asignsada</string>
     <string name="resolved">Resuelta</string>
+    <string name="pressToChangeState">Presiona el botón para cambiar el estado</string>
+    <string name="change">Cambiar</string>
 </resources>

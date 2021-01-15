@@ -27,4 +27,6 @@
     <string name="pending">Pending</string>
     <string name="assigned">Assigned</string>
     <string name="resolved">Resolved</string>
+    <string name="pressToChangeState">Press the button to change the state</string>
+    <string name="change">Change</string>
 </resources>

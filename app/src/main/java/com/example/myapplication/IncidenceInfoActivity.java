@@ -1,10 +1,14 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.DB.IncidenciaDBHelper;
@@ -21,15 +25,18 @@ public class IncidenceInfoActivity extends AppCompatActivity {
 
         dbHelper = new IncidenciaDBHelper(getApplicationContext());
         db = dbHelper.getWritableDatabase();
-        ArrayList<Incidence> inci =  dbHelper.getAllIncidences(db);
+        final ArrayList<Incidence> inci =  dbHelper.getAllIncidences(db);
         String name="";
         String date="";
         String urgence = "";
-        String id="";
+        int id = 0;
 
         TextView nameTextView = findViewById(R.id.incidenceInfoTitle);
         TextView dateTextView = findViewById(R.id.dateIncidenceActivity);
         TextView urgenceTextView = findViewById(R.id.urgenceIncidenceActivity);
+        final TextView stateTextView = findViewById(R.id.stateIncidenceActivity);
+        final ImageView stateImage = findViewById(R.id.stateCircleInfo);
+        Button changeState = findViewById(R.id.changeStateButton);
 
         final Intent i = getIntent();
         Bundle extra = i.getExtras();
@@ -37,9 +44,38 @@ public class IncidenceInfoActivity extends AppCompatActivity {
             name = extra.getString("name");
             date = extra.getString("date");
             urgence = extra.getString("urgence");
+            id = Integer.parseInt(extra.getString("id"));
         }
         nameTextView.setText(name);
         dateTextView.setText(getString(R.string.date)+": "+ date);
         urgenceTextView.setText(urgence);
+
+
+        final int finalId = id;
+        changeState.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int state=inci.get(finalId).getState();
+                state++;
+                if(state>2)
+                    state=0;
+                inci.get(finalId).setState(state);
+                dbHelper.changeState(db, inci.get(finalId));
+                stateTextView.setText(getString(R.string.state)+": "+state);
+                switch(state){
+                    case(0):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));
+                    break;
+                    case(1):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.orange_circle));
+
+                    break;
+                    case(2):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.green_circle));
+
+                    break;
+                    default:stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));
+
+                    break;
+                }
+            }
+        });
     }
 }
