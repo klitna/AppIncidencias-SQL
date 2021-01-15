@@ -30,7 +30,7 @@
     <string name="date">Data</string>
     <string name="state">Estado</string>
     <string name="pending">Pendiente</string>
-    <string name="assigned">Asignsada</string>
+    <string name="assigned">Asignada</string>
     <string name="resolved">Resuelta</string>
     <string name="pressToChangeState">Presiona el botón para cambiar el estado</string>
     <string name="change">Cambiar</string>

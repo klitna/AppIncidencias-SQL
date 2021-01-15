@@ -49,7 +49,15 @@ public class IncidenceInfoActivity extends AppCompatActivity {
         nameTextView.setText(name);
         dateTextView.setText(getString(R.string.date)+": "+ date);
         urgenceTextView.setText(urgence);
-
+        switch(inci.get(id).getState()){
+            case(0):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));
+                stateTextView.setText(getString(R.string.state)+": "+getString(R.string.pending)); break;
+            case(1):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.orange_circle));
+                stateTextView.setText(getString(R.string.state)+": "+getString(R.string.assigned)); break;
+            case(2):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.green_circle));
+                stateTextView.setText(getString(R.string.state)+": "+getString(R.string.resolved)); break;
+            default:stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));break;
+        }
 
         final int finalId = id;
         changeState.setOnClickListener(new View.OnClickListener() {
@@ -61,19 +69,14 @@ public class IncidenceInfoActivity extends AppCompatActivity {
                     state=0;
                 inci.get(finalId).setState(state);
                 dbHelper.changeState(db, inci.get(finalId));
-                stateTextView.setText(getString(R.string.state)+": "+state);
                 switch(state){
                     case(0):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));
-                    break;
+                    stateTextView.setText(getString(R.string.state)+": "+getString(R.string.pending)); break;
                     case(1):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.orange_circle));
-
-                    break;
+                    stateTextView.setText(getString(R.string.state)+": "+getString(R.string.assigned)); break;
                     case(2):stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.green_circle));
-
-                    break;
-                    default:stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));
-
-                    break;
+                    stateTextView.setText(getString(R.string.state)+": "+getString(R.string.resolved)); break;
+                    default:stateImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.red_circle));break;
                 }
             }
         });
